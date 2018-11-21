@@ -61,23 +61,23 @@ def load_and_plot(filename,
 # Exercise b)
 #=================================================================================
 
-#load_and_plot('small_lattice_2_2__cycles_100000_T_1.000000.txt',
-#              analytic_sol=True,
-#              default =['E','Mabs'],
-#              max_cycle=201,
-#              L=2)
+load_and_plot('small_lattice_2_2__cycles_100000_T_1.000000.txt',
+              analytic_sol=True,
+              default =['E','Mabs'],
+              max_cycle=201,
+              L=2)
 
-#load_and_plot('small_lattice_2_2__cycles_100000_T_1.000000.txt',
-#              analytic_sol=True,
-#              default =['CV'],
-#              max_cycle=1251,
-#              L=2)
+load_and_plot('small_lattice_2_2__cycles_100000_T_1.000000.txt',
+              analytic_sol=True,
+              default =['CV'],
+              max_cycle=1251,
+              L=2)
 
-#load_and_plot('small_lattice_2_2__cycles_100000_T_1.000000.txt',
-#              analytic_sol=True,
-#              default =['X'],
-#              max_cycle=15001,
-#              L=2)
+load_and_plot('small_lattice_2_2__cycles_100000_T_1.000000.txt',
+              analytic_sol=True,
+              default =['X'],
+              max_cycle=15001,
+              L=2)
 
 #=================================================================================
 # Exercise c)
@@ -202,51 +202,50 @@ def load_and_plot_T(default =['E', 'Mabs','CV', 'X', ],
 #              max_cycle=500000,
 #              L=40)
 
+## plots
+#ylabels = {}
+#ylabels['E']=r"$\langle E/L^2 \rangle\quad   [J]$"
+#ylabels['CV']=r"$C_V/L^2 \quad   [ J T^{-1} ]$" 
+#ylabels['X']=r"$\chi/L^2 \quad   [ J ]$"
+#ylabels['Mabs']=r"$\langle| \mathscr{M}|/L^2  \rangle$"
 
-# plots
-ylabels = {}
-ylabels['E']=r"$\langle E/L^2 \rangle\quad   [J]$"
-ylabels['CV']=r"$C_V/L^2 \quad   [ J T^{-1} ]$" 
-ylabels['X']=r"$\chi/L^2 \quad   [ J ]$"
-ylabels['Mabs']=r"$\langle| \mathscr{M}|/L^2  \rangle$"
+#labels = {}
+#labels['E'] = r'$E$'
+#labels['Mabs'] = r'$|\mathscr{M}|$'
+#labels['X'] = r'$\chi$'
+#labels['CV'] = r'$C_V$'
 
-labels = {}
-labels['E'] = r'$E$'
-labels['Mabs'] = r'$|\mathscr{M}|$'
-labels['X'] = r'$\chi$'
-labels['CV'] = r'$C_V$'
-
-for L in [40,60,80,100]:
-    L2 = L*L;
-    data_T = {}; times = []
-    data_T['E'], data_T['M'], data_T['CV'], data_T['X_'], data_T['X'], data_T['Mabs'] = [], [], [], [], [], []
-    for T in ['2.000000', '2.050000', '2.100000', '2.150000', '2.200000', '2.250000','2.300000','2.350000']:
-        data  = {}
-        data['E'], data['M'], data['CV'], data['X'], data['X_'], data['Mabs'] = np.loadtxt('random_lattice_'+str(L)+'_'+str(L)+'__'+
-                                                                           'cycles_1500000_'+
-                                                                           'T_'+T+'.txt', delimiter=',', unpack=True)
+#for L in [40,60,80,100]:
+#    L2 = L*L;
+#    data_T = {}; times = []
+#    data_T['E'], data_T['M'], data_T['CV'], data_T['X_'], data_T['X'], data_T['Mabs'] = [], [], [], [], [], []
+#    for T in ['2.000000', '2.050000', '2.100000', '2.150000', '2.200000', '2.250000','2.300000','2.350000']:
+#        data  = {}
+#        data['E'], data['M'], data['CV'], data['X'], data['X_'], data['Mabs'] = np.loadtxt('random_lattice_'+str(L)+'_'+str(L)+'__'+
+#                                                                           'cycles_1500000_'+
+#                                                                           'T_'+T+'.txt', delimiter=',', unpack=True)
         
-        T_float = float(T);
+#        T_float = float(T);
 
-        if  T ==  '2.250000':
-            data_T['X'].append(sum(data['X'][1499900:])/(100*T_float*L2))
-        else:
-            data_T['X'].append(sum(data['X'][1499900:])/(100*T_float*L2))
+#        if  T ==  '2.250000':
+#            data_T['X'].append(sum(data['X'][1499900:])/(100*T_float*L2))
+#        else:
+#            data_T['X'].append(sum(data['X'][1499900:])/(100*T_float*L2))
 
-        for quantity in ['E','Mabs']:
-            data_T[quantity].append(sum(data[quantity][1499900:])/(100*L2))
+#        for quantity in ['E','Mabs']:
+#            data_T[quantity].append(sum(data[quantity][1499900:])/(100*L2))
 
-        data_T['CV'].append(sum(data['CV'][1499900:])/(100*T_float*T_float*L2))
+#        data_T['CV'].append(sum(data['CV'][1499900:])/(100*T_float*T_float*L2))
 
-        times.append(T_float)
+#        times.append(T_float)
 
-    for quantity in ['E','CV','X','Mabs']:
-        plt.figure('expectation_value_'+quantity+'_versus_time')
-        plt.plot(times,data_T[quantity],'o--',label=r'$L=$'+str(L))
-        plt.xlabel('T')
-        plt.ylabel(ylabels[quantity])
-        plt.legend(loc="best")
-        plt.show(block=False)
-        plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
+#    for quantity in ['E','CV','X','Mabs']:
+#        plt.figure('expectation_value_'+quantity+'_versus_time')
+#        plt.plot(times,data_T[quantity],'o--',label=r'$L=$'+str(L))
+#        plt.xlabel('T')
+#        plt.ylabel(ylabels[quantity])
+#        plt.legend(loc="best")
+#        plt.show(block=False)
+#        plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
 
 plt.show()
