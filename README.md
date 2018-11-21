@@ -6,6 +6,8 @@ There are 3 code files.
 - PythonApplication1.py
 - module1.py
 
+The remaining files are txt files containing plot data.
+
 The file "Main.cpp" contains the main C++ program,
 and all other functions that we have used in our code.
 That includes the implementation of the metropolis algorithm.
@@ -50,4 +52,7 @@ Similar files are created for all other such code snippets.
 
 As for PythonApplication1.py, it is formatted similarly with respect to the exercises,
 but it only creates plots based on the data that each exercise requires.
-When it is run as is (after plot data for b) is generated), it will print the plot for exercise b).
+When it is run as is, it will print the plot for exercise b).
+
+
+The data files for exercise e) were too big to include.
