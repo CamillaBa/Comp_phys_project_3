@@ -48,4 +48,6 @@ Similar files are created for all other such code snippets.
 
 
 
-As for 
+As for PythonApplication1.py, it is formatted similarly with respect to the exercises,
+but it only creates plots based on the data that each exercise requires.
+When it is run as is (after plot data for b) is generated), it will print the plot for exercise b).
